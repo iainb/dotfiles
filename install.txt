@@ -1,0 +1,14 @@
+cd ~
+mv .bashrc .bashrc_orig
+ln -s dotfiles/bashrc.symlink .bashrc
+
+mv .vimrc .vimrc_orig
+ln -s dotfiles/vimrc.symlink .vimrc
+
+mv .vim .vim_orig
+ln -s dotfiles/vim.symlink .vim
+
+cd dotfiles
+git submodule sync
+git submodule init
+git submodule update

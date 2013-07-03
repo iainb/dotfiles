@@ -1,0 +1,40 @@
+execute pathogen#infect()
+
+syntax on
+filetype plugin indent on
+
+set number
+set ruler
+
+set mouse=a
+set history=1000
+
+colorscheme desert
+
+"turns off the swap file stuff
+set nobackup
+set nowritebackup
+set noswapfile
+
+set autoindent
+set cindent
+
+"stop files folding when they're opened
+set foldlevelstart=99
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+set incsearch
+set hlsearch
+
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
