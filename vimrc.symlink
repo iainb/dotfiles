@@ -38,3 +38,5 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+" syntastic use pyflakes
+let g:syntastic_python_checkers=['pyflakes', 'python']
