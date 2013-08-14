@@ -9,6 +9,9 @@ set ruler
 set mouse=a
 set history=1000
 
+" change leader to ,
+let mapleader=','
+
 colorscheme desert
 
 "turns off the swap file stuff
@@ -38,5 +41,12 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+set wildignore+=*.o,*.obj,*.git,*.pyc
+
 " syntastic use pyflakes
 let g:syntastic_python_checkers=['pyflakes', 'python']
+
+" CtrlP
+noremap <leader>o <Esc>:CtrlP<CR>
+noremap <leader>O <Esc>:CtrlPClearCache<CR>
+" noremap <leader>m <Esc>:CommandTBuffer<CR>
