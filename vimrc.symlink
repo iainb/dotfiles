@@ -47,6 +47,5 @@ set wildignore+=*.o,*.obj,*.git,*.pyc
 let g:syntastic_python_checkers=['pyflakes', 'python']
 
 " CtrlP
-noremap <leader>o <Esc>:CtrlP<CR>
-noremap <leader>O <Esc>:CtrlPClearCache<CR>
-" noremap <leader>m <Esc>:CommandTBuffer<CR>
+let g:ctrlp_map = '<leader>o'
+let g:ctrlp_working_path_mode = ''
