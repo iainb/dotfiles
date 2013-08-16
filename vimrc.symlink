@@ -49,3 +49,7 @@ let g:syntastic_python_checkers=['pyflakes', 'python']
 " CtrlP
 let g:ctrlp_map = '<leader>o'
 let g:ctrlp_working_path_mode = ''
+
+" 80 chrs column
+set colorcolumn=81
+hi ColorColumn guibg=#3d3d3d
