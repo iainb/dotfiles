@@ -55,4 +55,8 @@ set colorcolumn=81
 hi ColorColumn guibg=#3d3d3d
 
 noremap <leader>. :tabn<CR>
-noremap <leader>m :tabn<CR>
+noremap <leader>m :tabp<CR>
+
+" vim-airline options
+let g:airline_enable_syntastic = 1
+set laststatus=2
