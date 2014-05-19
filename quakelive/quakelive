@@ -1,0 +1,2 @@
+#!/bin/bash
+taskset 0x01 wine ~/.wine/dosdevices/c\:/Program\ Files\ \(x86\)/Quake\ Live/Launcher.exe

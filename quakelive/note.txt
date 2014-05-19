@@ -1,1 +1,2 @@
-These should be symlinked to ~/.quakelive/quakelive/home/baseq3
+core contains config for any machine
+logan for logan system

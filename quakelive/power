@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$1" == "down" ]; then
+    echo "enabling cpu ondemand performance settings"
+    echo  "cpufreq-set -c 0 -g ondemand; cpufreq-set -c 1 -g ondemand; cpufreq-set -d 1.6Ghz -c 0; cpufreq-set -d 1.6Ghz -c 1" | sudo sh
+elif [ "$1" == "up" ]; then
+    echo "enabling cpu max performance settings"
+    echo "cpufreq-set -c 0 -g performance; cpufreq-set -c 1 -g performance; cpufreq-set -d 2.8Ghz -c 0; cpufreq-set -d 2.8Ghz -c 1" | sudo sh
+else
+    echo "Doing nothing, valid arguments are 'up' and 'down'"
+fi
