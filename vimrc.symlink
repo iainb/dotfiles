@@ -46,6 +46,7 @@ set wildignore+=*.o,*.obj,*.git,*.pyc
 " syntastic use pyflakes
 let g:syntastic_python_checkers=['flake8', 'pyflakes', 'python']
 let g:syntastic_python_checker_args='--exclude=migrations --ignore=E261 --max-line-length=80'
+let g:syntastic_python_flake8_args='--exclude=migrations --ignore=E261 --max-line-length=80'
 
 " golang options
 let g:syntastic_go_checkers=['go']
