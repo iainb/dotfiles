@@ -44,8 +44,13 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 set wildignore+=*.o,*.obj,*.git,*.pyc
 
 " syntastic use pyflakes
-let g:syntastic_python_checkers=['flake8', 'pyflakes', 'python']
-let g:syntastic_python_checker_args='--exclude=migrations --ignore=E261 --max-line-length=80'
+let g:syntastic_python_checkers=['flake8', 'pep257', 'python']
+let g:syntastic_python_flake8_args='--exclude=migrations --ignore=E261 --max-line-length=80'
+let g:syntastic_python_pep257_args='--ignore=D100,D101,D102,D103,D401,D400'
+let g:syntastic_aggregate_errors = 1
+
+" syntastic to use coffeelint
+let g:syntastic_coffee_coffeelint_args = "--csv --file ~/dotfiles/coffeelint_config.json"
 
 " golang options
 let g:syntastic_go_checkers=['go']
