@@ -113,5 +113,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PATH=$HOME/bin:$PATH:$HOME/.local/bin
 export EDITOR=vi
 export PAGER=less
+
+# grep only in python source files
+alias pygrep='grep --exclude-dir=\*venv\* --include \*.py $@'
+# swap caps lock and control key for non-unix keyboards
+alias swapcaps='setxkbmap -layout gb -option ctrl:swapcaps'

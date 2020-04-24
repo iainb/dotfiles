@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# This was replaced with a piece of software called autorandr:
+# https://github.com/phillipberndt/autorandr
+
+function external() {
+    xrandr --output DP1-8 --mode 1920x1200 --pos 0x0 --rotate left --primary
+    xrandr --output DP1-1 --mode 1920x1200 --pos 1200x0 --rotate right
+    xrandr --output eDP1 --mode 1920x1080 --pos 2400x0 --rotate normal
+}
+
+function internal() {
+    xrandr --output DP1-1 --pos 0x0 --rotate normal --off
+    xrandr --output DP1-8 --pos 0x0 --rotate normal --off
+    xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal --primary
+}
+
+if [ "$1" == "connect" ]
+then
+    echo "connecting and configuring external displays..."
+    external
+    exit 0
+fi
+
+if [ "$1" == "disconnect" ]
+then
+    echo "disconnecting external displays..."
+    internal
+    exit 0
+fi
+
+echo "options: $0 <connect|disconnect>"

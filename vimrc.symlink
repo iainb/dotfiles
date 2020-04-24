@@ -44,9 +44,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 set wildignore+=*.o,*.obj,*.git,*.pyc
 
 " python error checking
-let g:syntastic_python_checkers=['flake8', 'pep257', 'python']
-let g:syntastic_python_flake8_args='--exclude=migrations --ignore=E261 --max-line-length=80'
-let g:syntastic_python_pep257_args='--ignore=D100,D101,D102,D103,D401,D400,D205,D203,D204'
+let g:syntastic_python_checkers=['flake8', 'python']
 let g:syntastic_aggregate_errors = 1
 
 " syntastic to use coffeelint
@@ -59,6 +57,7 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 " CtrlP
 let g:ctrlp_map = '<leader>o'
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_custom_ignore = 'htmlcov\|venv'
 
 " 80 chrs column
 set colorcolumn=81

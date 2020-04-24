@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# script to create a tmux session with a variety of windows pre-configured
+# along with some python virtual environments. This should be used as a
+# reference.
+
+SESSION_NAME=work
+
+# if the session exists attach to it and then exit
+tmux has-session -t $SESSION_NAME 2>/dev/null
+if [ "$?" -eq 0 ]
+then
+    tmux attach-session -t $SESSION_NAME
+    exit 0
+fi
+
+# session doesn't exist create it and attach
+tmux new-session -d -s $SESSION_NAME
+
+tmux send-keys 'cd ~/company/frontend2' 'C-m'
+tmux send-keys 'source ~/envs/company/bin/activate' 'C-m'
+tmux rename-window 'frontend'
+
+tmux new-window
+tmux send-keys 'cd ~/company/src' 'C-m'
+tmux send-keys 'source ~/envs/company/bin/activate' 'C-m'
+tmux send-keys 'vim' 'C-m'
+tmux rename-window 'backend'
+
+tmux new-window
+tmux send-keys 'source ~/envs/company/bin/activate' 'C-m'
+tmux send-keys 'cd ~/company/src' 'C-m'
+
+tmux new-window
+tmux send-keys 'source ~/envs/company/bin/activate' 'C-m'
+tmux send-keys 'cd ~/company/src' 'C-m'
+
+tmux attach -t $SESSION_NAME
