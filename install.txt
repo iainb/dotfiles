@@ -8,6 +8,9 @@ ln -s dotfiles/vimrc.symlink .vimrc
 mv .vim .vim_orig
 ln -s dotfiles/vim.symlink .vim
 
+mv .config/nvim .config/nvim_orig
+ln -s $HOME/dotfiles/nvim.symlink $HOME/.config/nvim
+
 cd dotfiles
 git submodule sync
 git submodule init
