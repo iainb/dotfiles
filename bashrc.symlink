@@ -110,6 +110,8 @@ if ! shopt -oq posix; then
     . /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  elif [ -f /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+    . /opt/homebrew/etc/profile.d/bash_completion.sh
   fi
 fi
 
@@ -121,3 +123,9 @@ export PAGER=less
 alias pygrep='grep --exclude-dir=\*venv\* --include \*.py $@'
 # swap caps lock and control key for non-unix keyboards
 alias swapcaps='setxkbmap -layout gb -option ctrl:swapcaps'
+
+
+if [ -f ~/.asdf/asdf.sh ]; then
+    . ~/.asdf/asdf.sh
+    . ~/.asdf/completions/asdf.bash
+fi
