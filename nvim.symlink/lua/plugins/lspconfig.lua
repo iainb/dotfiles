@@ -59,6 +59,16 @@ return {
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
     end
 
+    vim.diagnostic.config({
+      virtual_text = false, -- Disable inline error text (cleaner look)
+      signs = true, -- Show signs in the gutter
+      update_in_insert = false, -- Don't show errors while typing
+      float = {
+      border = "rounded",
+      source = true, -- Show source of error (e.g., Pyright, ESLint)
+      },
+    })
+
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -77,7 +87,7 @@ return {
     })
 
     -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
+    lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -90,6 +100,12 @@ return {
 
     -- configure python server
     lspconfig["pyright"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure intelephense (php) server
+    lspconfig["intelephense"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })

@@ -6,8 +6,12 @@ return {
       lualine.setup({
         sections = {
           lualine_c = {
-            'buffers',
+            'filename',
           },
+        },
+        winbar = {
+          -- display full path relative to cwd at the top
+          lualine_c = { function() return vim.fn.expand('%:.') end }
         }
       })
     end,
