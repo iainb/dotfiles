@@ -11,7 +11,7 @@ return {
 
     telescope.setup({
       defaults = {
-        file_ignore_patterns = { "node_modules", "%.parquet$", "%.svg$", "htmlcov"},
+        file_ignore_patterns = { "node_modules", "%.parquet$", "%.svg$", "htmlcov", "venv", "__pycache__"},
         layout_config = {
           horizontal = {
             width = 0.9,       -- Set width to 90% of the screen width
